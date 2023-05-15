@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Video to Blog Post Converter</title>
+  </head>
+  <body>
+    <h1>Video to Blog Post Converter</h1>
+    <form action="/convert" method="POST" enctype="multipart/form-data">
+      <input type="file" name="video" accept="video/*">
+      <button type="submit">Convert</button>
+    </form>
+    <div id="result"></div>
+    <script>
+      const form = document.querySelector('form');
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        
+        const fileInput = document.querySelector('input[type="file"]');
+        const file = fileInput.files[0];
+        if (!file) {
+          alert('Please select a video file.');
+          return;
+        }
+        
+        const formData = new FormData();
+        formData.append('video', file);
+        
+        const response = await fetch('/convert', {
+          method: 'POST',
+          body: formData
+        });
+        
+        const result = await response.text();
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = result;
+      });
+    </script>
+  </body>
+</html>
