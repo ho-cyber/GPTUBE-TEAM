@@ -2,14 +2,73 @@
 <html>
   <head>
     <title>Video to Blog Post Converter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
   </head>
   <body>
-    <h1>Video to Blog Post Converter</h1>
-    <form action="/convert" method="POST" enctype="multipart/form-data">
-      <input type="file" name="video" accept="video/*">
-      <button type="submit">Convert</button>
-    </form>
-    <div id="result"></div>
+    <div class="container">
+      <div class="row m-4">
+        <div class="col-12">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <div class="logo"><span class="highlight">GP</span>Tube</div>
+              </div>
+              <div class="col-12 col-md-auto">
+                <ul class="nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Tutorials</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row m-4">
+        <div class="col-12 col-md-4">
+          Convert video to a blog post in a blink of an eye!
+        </div>
+        <div class="col-12 col-md-auto">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <h1 class="my-4">Video to Blog Post Converter</h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <form action="/convert" method="POST" enctype="multipart/form-data">
+                  <div class="input-group mb-3">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="inputGroupFile02" type="file" name="video" accept="video/*">
+                      <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                      <button class="input-group-text"  type="submit" id="inputGroupFileAddon02">Convert</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div id="result"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script>
       const form = document.querySelector('form');
       form.addEventListener('submit', async (event) => {
