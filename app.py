@@ -24,8 +24,8 @@ def home():
         # Generate the optimized blog post using OpenAI's API
         response = openai.Completion.create(
             engine="text-davinci-003",
-            prompt=text,
-            temperature=0.7,
+            prompt="Make this in the form of an SEO blog post also make it intuitive and captivating" + text,
+            temperature=0.9,
             max_tokens=500,
             top_p=1.0,
             frequency_penalty=0.0,
