@@ -11,3 +11,15 @@
 .main-navigation {
     height: 40px;
 }
+
+body {
+    background: url(../images/main-banner.jpg) no-repeat top center;
+}
+
+.main-navigation a {
+    color: #1E2132;
+}
+
+h1 {
+    font-size: 2rem;
+}
