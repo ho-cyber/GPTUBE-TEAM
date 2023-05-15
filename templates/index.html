@@ -1,39 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Video to Blog Post Converter</title>
-  </head>
-  <body>
-    <h1>Video to Blog Post Converter</h1>
-    <form action="/convert" method="POST" enctype="multipart/form-data">
-      <input type="file" name="video" accept="video/*">
-      <button type="submit">Convert</button>
+<head>
+    <title>YouTube Video Transcription to Blog Post</title>
+</head>
+<body>
+    <h1>YouTube Video Transcription to Blog Post</h1>
+    <form method="POST" action="/">
+        <label for="video_id">YouTube Video ID:</label>
+        <input type="text" id="video_id" name="video_id" required>
+        <input type="submit" value="Generate Blog Post">
     </form>
-    <div id="result"></div>
-    <script>
-      const form = document.querySelector('form');
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        
-        const fileInput = document.querySelector('input[type="file"]');
-        const file = fileInput.files[0];
-        if (!file) {
-          alert('Please select a video file.');
-          return;
-        }
-        
-        const formData = new FormData();
-        formData.append('video', file);
-        
-        const response = await fetch('/convert', {
-          method: 'POST',
-          body: formData
-        });
-        
-        const result = await response.text();
-        const resultDiv = document.getElementById('result');
-        resultDiv.innerHTML = result;
-      });
-    </script>
-  </body>
+    
+    <h2>Generated Blog Post:</h2>
+    <div>
+        {{ blog_post }}
+    </div>
+    
+    {% if file_path %}
+    <p>Blog post saved to: <a href="{{ file_path }}">{{ file_path }}</a></p>
+    {% endif %}
+</body>
 </html>
