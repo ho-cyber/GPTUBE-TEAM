@@ -1,21 +1,28 @@
 .logo {
     font-family: 'Inter Tight', sans-serif;
     font-size: 3rem;
-    color: #385DFF;
-}
-
-.logo span {
     color: #1E2132;
 }
 
-.main-navigation {
-    height: 40px;
-}
-
-body {
-    background: url(../images/main-banner.jpg) no-repeat top center;
+.highlight {
+    color: #385DFF;
 }
 
 h1 {
     font-size: 2rem;
+}
+
+
+@media (min-width: 768px) {
+    body {
+        background: url(../images/main-banner.jpg) no-repeat top center;
+    }
+    
+    .hero-banner {
+        min-height: 960px;
+    }
+
+    .main-navigation {
+        height: 40px;
+    }
 }
